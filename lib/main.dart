@@ -7,6 +7,10 @@ import 'widgets/common.dart';
 import 'features/auth/login_screen.dart';
 import 'features/home/home_screen.dart';
 import 'features/profile/profile_screen.dart';
+import 'features/search/search_screen.dart';
+import 'features/seller/seller_dashboard.dart';
+import 'features/chat/chat_screen.dart';
+import 'features/orders/orders_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +53,7 @@ class HomeShell extends StatefulWidget {
 
 class _HomeShellState extends State<HomeShell> {
   int _tab = 0;
-  final _pages = const [HomeScreen(), _Placeholder('Explore'), _Placeholder('Sell'), _Placeholder('Messages'), ProfileScreen()];
+  final _pages = const [HomeScreen(), SearchScreen(), SellerDashboard(), ChatScreen(), ProfileScreen()];
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -59,7 +63,7 @@ class _HomeShellState extends State<HomeShell> {
           onDestinationSelected: (i) => setState(() => _tab = i),
           destinations: const [
             NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.travel_explore_outlined), selectedIcon: Icon(Icons.travel_explore), label: 'Explore'),
+            NavigationDestination(icon: Icon(Icons.search_outlined), selectedIcon: Icon(Icons.search), label: 'Search'),
             NavigationDestination(icon: Icon(Icons.sell_outlined), selectedIcon: Icon(Icons.sell), label: 'Sell'),
             NavigationDestination(icon: Icon(Icons.chat_bubble_outline), selectedIcon: Icon(Icons.chat_bubble), label: 'Messages'),
             NavigationDestination(icon: Icon(Icons.person_outline), selectedIcon: Icon(Icons.person), label: 'Profile'),
